@@ -23,7 +23,7 @@ to another page.
 
 Inline `code` has `back-ticks around` it.
 
-```ruby
+```
 Blocks of code are written between three back-ticks.
 This is one such example.
 I am writing multiple lines inside a block.
