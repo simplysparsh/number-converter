@@ -1,22 +1,20 @@
 class NumberConverter
 
   def convert(arabic_number)
+
     if arabic_number == 0
       ""
-    elsif arabic_number == 1
-      "I" + convert(0)
-    elsif arabic_number == 2
-      "I" + convert(1)
-    elsif arabic_number == 3
-      "I" + convert(2)
+    elsif arabic_number <= 3
+      "I" + convert(arabic_number-1)
     elsif arabic_number == 4
       "I" + convert(5)
-    elsif arabic_number == 5
-      "V" + convert(0)
-    elsif arabic_number == 6
-      "V" + convert(1)
-    else
-      "VII"
+    elsif arabic_number <= 8
+      "V" + convert(arabic_number - 5)
+    elsif arabic_number == 10
+      "X"
+    elsif arabic_number == 9
+      "I" + convert(10)
+
     end
   end
 

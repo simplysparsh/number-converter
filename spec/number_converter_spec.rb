@@ -11,20 +11,21 @@ describe NumberConverter do
       end
     end
 
-    # I wish to comment about this hash.
-    # That means I could make it more expressive. What to do?
     {
-        1 => 'I',
-        2 => 'II',
-        3 => 'III',
-        4 => 'IV',
-        5 => 'V',
-        6 => 'VI',
-        7 => 'VII',
-    }.each do |input, expected|
-      context "when the input is #{input}" do
-        it "returns #{expected}" do
-          expect(converter.convert(input)).to eq expected
+        1  => 'I',
+        2  => 'II',
+        3  => 'III',
+        4  => 'IV',
+        5  => 'V',
+        6  => 'VI',
+        7  => 'VII',
+        8  => 'VIII',
+        9  => 'IX',
+        10 => 'X',
+    }.each do |arabic_number, roman_number|
+      context "when the input is #{arabic_number}" do
+        it "returns #{roman_number}" do
+          expect(converter.convert(arabic_number)).to eq roman_number
         end
       end
 
