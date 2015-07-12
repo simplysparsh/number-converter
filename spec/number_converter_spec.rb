@@ -14,8 +14,11 @@ describe NumberConverter do
     {
         1 => 'I',
         2 => 'II',
+        3 => 'III',
+        4 => 'IV',
+        5 => 'V',
     }.each do |input, expected|
-       context "For the input #{input}" do
+      context "For the input #{input}" do
         it "returns #{expected}" do
           expect(converter.convert(input)).to eq expected
         end
