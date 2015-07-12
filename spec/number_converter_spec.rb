@@ -11,14 +11,18 @@ describe NumberConverter do
       end
     end
 
+    # I wish to comment about this hash.
+    # That means I could make it more expressive. What to do?
     {
         1 => 'I',
         2 => 'II',
         3 => 'III',
         4 => 'IV',
         5 => 'V',
+        6 => 'VI',
+        7 => 'VII',
     }.each do |input, expected|
-      context "For the input #{input}" do
+      context "when the input is #{input}" do
         it "returns #{expected}" do
           expect(converter.convert(input)).to eq expected
         end
