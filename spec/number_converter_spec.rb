@@ -49,6 +49,14 @@ describe NumberConverter do
         98  => 'XCVIII',
         99  => 'XCIX',
         100 => 'C',
+        550 => 'DL',
+        707 => 'DCCVII',
+        1000 => 'M',
+        2000 => 'MM',
+        2001 => 'MMI',
+        3497 => 'MMMCDXCVII',
+        7999 => 'MMMMMMMCMXCIX',
+        9864 => 'MMMMMMMMMDCCCLXIV'
 
     }.each do |arabic_number, roman_number|
       context "when the input is #{arabic_number}" do

@@ -3,19 +3,32 @@ class NumberConverter
   def convert(arabic_number)
 
     case arabic_number
-      when 0      then ''
-      when 1..3   then 'I'  + convert(arabic_number - 1)
-      when 4      then 'IV'
-      when 5..8   then 'V'  + convert(arabic_number - 5)
-      when 9      then 'IX'
-      when 10..39 then 'X'  + convert(arabic_number - 10)
-      when 40..49 then 'XL' + convert(arabic_number - 40)
-      when 50..89 then 'L'  + convert(arabic_number - 50)
-      when 60..99 then 'XC' + convert(arabic_number - 90)
-      when 100    then 'C'
+      when 0       then ''
+      else convert_to_roman(arabic_number)
     end
 
   end
+
+  def convert_to_roman(arabic)
+    upper_bound = arabic + 1
+    conversion_factors_in_arabic = [1,   4,    5,   9,   10,   40,  50,  90, 100, 400,  500, 900, 1000, upper_bound]
+    conversion_factors_in_roman = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M']
+
+    required_factor = get_conversion_factor(arabic, conversion_factors_in_arabic)
+
+    conversion_factors_in_roman[required_factor] + convert(arabic-conversion_factors_in_arabic[required_factor])
+  end
+
+  def get_conversion_factor(arabic, conversion_factors_in_arabic)
+    array_element = 0
+
+    while arabic >= conversion_factors_in_arabic[array_element +1]
+      array_element = array_element + 1
+    end
+
+    array_element
+  end
+
 end
 
 
