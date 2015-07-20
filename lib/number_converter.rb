@@ -16,14 +16,18 @@ class NumberConverter
   private
 
   def convert_to_roman(arabic)
-    set_last_conversaion_factor(arabic)
-
+    set_upper_bound(arabic)
     required_factor = get_conversion_factor(arabic)
+    get_roman(arabic, required_factor)
+  end
+
+
+  def get_roman(arabic, required_factor)
     @conversion_factors_in_roman[required_factor] + convert(arabic-@conversion_factors_in_arabic[required_factor])
   end
 
 
-  def set_last_conversaion_factor(arabic)
+  def set_upper_bound(arabic)
     @conversion_factors_in_arabic[-1] = arabic + 1
   end
 
@@ -31,11 +35,16 @@ class NumberConverter
   def get_conversion_factor(arabic)
     array_element = 0
 
-    while arabic >= @conversion_factors_in_arabic[array_element + 1]
+    while using_wrong_factor(arabic, array_element)
       array_element = array_element + 1
     end
 
     array_element
+  end
+
+
+  def using_wrong_factor(arabic, array_element)
+    arabic >= @conversion_factors_in_arabic[array_element + 1]
   end
 
 end
